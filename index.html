@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayşe'ye Sürpriz!</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffe6e6, #ffb3b3);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 90%;
+            width: 400px;
+            transition: all 0.5s ease;
+        }
+        button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 77, 77, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        button:hover {
+            transform: scale(1.05);
+            background-color: #ff3333;
+        }
+        .hidden {
+            display: none;
+        }
+        .surprise-content {
+            animation: popUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .cake {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+        h1 {
+            color: #cc0000;
+            font-size: 24px;
+            line-height: 1.5;
+        }
+        @keyframes popUp {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- İlk Başta Görünecek Buton -->
+        <div id="button-stage">
+            <button onclick="surpriziAc()">Sürpriz İçin Tıkla! 🎉</button>
+        </div>
+
+        <!-- Tıklayınca Açılacak Bölüm -->
+        <div id="surprise-stage" class="hidden surprise-content">
+            <div class="cake">🎂</div>
+            <h1>Aferin, 13 yaşına girdin! <br><br> 📚 LGS seni bekliyor... 💪</h1>
+        </div>
+    </div>
+
+    <script>
+        function surpriziAc() {
+            // Buton sahnesini gizle
+            document.getElementById('button-stage').classList.add('hidden');
+            // Sürpriz sahnesini göster
+            document.getElementById('surprise-stage').classList.remove('hidden');
+            
+            // Arka planı biraz daha kutlama havasına sokalım
+            document.body.style.background = "linear-gradient(135deg, #fff0f5, #ffe4e1)";
+        }
+    </script>
+</body>
+</html>
